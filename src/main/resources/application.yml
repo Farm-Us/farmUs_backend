@@ -55,5 +55,3 @@ oauth:
 # 자바 코드로 생성한 64바이트 base64 인코딩된 JWT 시크릿 키
 jwt:
   secret: CwJArxGyhBEEAXl2uVV8BTLcWLb30YHVPa/0cHaF/zd25IYyS8Isep2SxHDSJYSrxnsRbUmLqoqEorh+odLlFw==
-  access-expiration-ms: 1800000   # 30분
-  refresh-expiration-ms: 1209600000  # 14일

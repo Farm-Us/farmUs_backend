@@ -27,7 +27,7 @@ public class JwtTokenProvider {
     private long refreshTokenValidityInMs;
 
     public TokenResponse generateTokens(User user) {
-        UserDto userDto = UserDto.from(user);
+        UserDto userDto = UserDto.of(user);
         String accessToken = generateToken(userDto, accessTokenValidityInMs);
         String refreshToken = generateToken(userDto, refreshTokenValidityInMs);
 
