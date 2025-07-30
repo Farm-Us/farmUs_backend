@@ -33,6 +33,7 @@ out/
 /nbdist/
 /.nb-gradle/
 .env
+env/
 
 
 /src/main/generated/
