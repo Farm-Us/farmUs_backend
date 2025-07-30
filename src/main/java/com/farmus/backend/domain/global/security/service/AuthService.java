@@ -29,13 +29,12 @@ public class AuthService {
                     User newUser = User.builder()
                             .email(userInfo.email())
                             .name(userInfo.name())
-                            .profileImage(userInfo.profileImage())
                             .provider(loginRequest.provider())
                             .providerId(userInfo.providerId())
                             .role(Role.USER)
                             .build();
                     return userRepository.save(newUser);
                 });
-
+        return jwtTokenProvider.generateTokens(user);
     }
 }
