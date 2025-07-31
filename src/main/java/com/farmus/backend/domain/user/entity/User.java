@@ -44,6 +44,7 @@ public class User extends BaseEntity {
     private ProducerProfile producerProfile;
 
     @OneToMany(mappedBy = "user")
+    @Builder.Default
     private List<Order> orders = new ArrayList<>();
 
 
