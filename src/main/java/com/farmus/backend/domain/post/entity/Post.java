@@ -1,6 +1,7 @@
 package com.farmus.backend.domain.post.entity;
 
 import com.farmus.backend.domain.global.BaseEntity;
+import com.farmus.backend.domain.user.entity.ProducerProfile;
 import com.farmus.backend.domain.user.entity.User;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
@@ -23,8 +24,8 @@ public class Post extends BaseEntity {
     private Long id;
 
     @ManyToOne(fetch = LAZY)
-    @JoinColumn(name = "user_id")
-    private User user;
+    @JoinColumn(name = "producer_profile_id")
+    private ProducerProfile producerProfile;
 
     private String title;
 
@@ -33,14 +34,17 @@ public class Post extends BaseEntity {
     @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<PostMedia> mediaList = new ArrayList<>();
 
-    private Post(User user, String title, String content) {
-        this.user = user;
+    private Post(ProducerProfile producerProfile, String title, String content) {
+        this.producerProfile = producerProfile;
         this.title = title;
         this.content = content;
     }
+    public Post(String title, String content) {
+        this(null, title, content);
+    }
 
-    public static Post of(User user, String title, String content) {
-        return new Post(user, title, content);
+    public static Post of(ProducerProfile producerProfile, String title, String content) {
+        return new Post(producerProfile, title, content);
     }
 
     public void update(String title, String content) {
@@ -49,6 +53,6 @@ public class Post extends BaseEntity {
     }
 
     public Long getOwnerId() {
-        return user.getId();
+        return producerProfile.getId();
     }
 }
