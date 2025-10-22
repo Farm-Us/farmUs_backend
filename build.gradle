@@ -54,7 +54,7 @@ dependencies {
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
     //PostgreSQL
-    implementation 'org.postgresql:postgresql:42.7.4'
+    implementation 'org.postgresql:postgresql:42.7.7'
     //Flyway
     implementation 'org.flywaydb:flyway-core'
 
